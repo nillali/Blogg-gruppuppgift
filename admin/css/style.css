@@ -3,3 +3,7 @@ table, tr, td{
     border-collapse: collapse;
     padding: 10px;
 }
+#change-button{
+    text-decoration: none;
+    color: black;
+}

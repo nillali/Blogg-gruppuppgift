@@ -19,14 +19,39 @@ async function blogPostsTable(){
           <td> ${post.author}</td>
           <td> ${formatedDate}</td>
           <td>
-          <button> Ändra</button>
+          <button><a id="change-button" href="update-post.html?id=${post['_id']}">Ändra</a></button>
           <button class="delete-post" data-id="${post['_id']}">Radera</button>
-          </td>
+          </td> 
 
 
           `;
 
         }
+
+       window.onload = function(){
+       getPost();
+       async function getPost(){
+       
+        let queryString = window.location.search;
+       console.log(queryString);
+       let urlParams = new URLSearchParams(queryString);
+       console.log(urlParams.get(['_id']));
+       }
+
+       try{
+           let response = await fetch('http://localhost:5000/posts');
+           let data = response.json();
+           console.log(data);
+
+           
+
+       }catch(error){
+           console.log(error);
+       }
+    }
+
+
+
         
         let deletePost = document.getElementsByClassName('delete-post');
         console.log(deletePost);
