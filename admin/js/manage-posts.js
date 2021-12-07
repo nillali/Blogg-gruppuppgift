@@ -8,21 +8,44 @@ async function blogPostsTable(){
     console.log(data);
     console.log(response);
     
-    for(let i = 0; i < data.length; i++){
-    let datePost = new Date(data.date);
+    for(let post of data){
+    let datePost = new Date(post.date);
     let formatedDate = `${datePost.getFullYear()}-${datePost.getMonth() + 1}-${datePost.getDate()} ${datePost.getHours()}:${datePost.getMinutes()}`
           
+    
+    console.log(post['_id']);
     postsTable.innerHTML += `
-          <td> ${data[i].title}</td>
-          <td> ${data[i].author}</td>
+          <td> ${post.title}</td>
+          <td> ${post.author}</td>
           <td> ${formatedDate}</td>
           <td>
           <button>Ändra</button>
-          <button>Radera</button>
+          <button class="delete-post" data-id="${post['_id']}">Radera</button>
           </td>
 
 
           `;
 
         }
-}
+        
+        let deletePost = document.getElementsByClassName('delete-post');
+        console.log(deletePost);
+
+        for (let post of deletePost){
+            post.addEventListener('click', async function(e){
+                e.preventDefault();
+
+                try{
+                   await fetch('http://localhost:5000/posts/' + e.target.dataset.id,
+                   {
+                       method: 'DELETE'
+                   } 
+                );
+                  e.target.parentNode.parentNode.remove(); 
+                   
+                }catch(error){
+                 console.log(error);
+                }
+            })
+        }
+    }
