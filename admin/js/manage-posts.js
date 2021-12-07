@@ -19,7 +19,7 @@ async function blogPostsTable(){
           <td> ${post.author}</td>
           <td> ${formatedDate}</td>
           <td>
-          <button>Ändra</button>
+          <button> Ändra</button>
           <button class="delete-post" data-id="${post['_id']}">Radera</button>
           </td>
 
