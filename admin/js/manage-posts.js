@@ -28,27 +28,27 @@ async function blogPostsTable(){
 
         }
 
-       window.onload = function(){
-       getPost();
-       async function getPost(){
+    //    window.onload = function(){
+    //    getPost();
+    //    async function getPost(){
        
-        let queryString = window.location.search;
-       console.log(queryString);
-       let urlParams = new URLSearchParams(queryString);
-       console.log(urlParams.get(['_id']));
-       }
+    //     let queryString = window.location.search;
+    //    console.log(queryString);
+    //    let urlParams = new URLSearchParams(queryString);
+    //    console.log(urlParams.get(['_id']));
+    //    }
 
-       try{
-           let response = await fetch('http://localhost:5000/posts');
-           let data = response.json();
-           console.log(data);
+    //    try{
+    //        let response = await fetch('http://localhost:5000/posts');
+    //        let data = response.json();
+    //        console.log(data);
 
            
 
-       }catch(error){
-           console.log(error);
-       }
-    }
+    //    }catch(error){
+    //        console.log(error);
+    //    }
+    // }
 
 
 

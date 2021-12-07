@@ -7,3 +7,7 @@ table, tr, td{
     text-decoration: none;
     color: black;
 }
+#main-container{
+    width: 860px;
+    margin: auto;
+}
