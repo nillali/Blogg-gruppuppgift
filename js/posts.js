@@ -17,6 +17,7 @@ async function blogPosts() {
           <h1> ${post.title}</h1>
           <p>${post.author} ⬥ ${formatedDate}</p>         
           <p>Tags: ${post.tags.join(', ')}</p>
+          <hr>
           <p> ${post.content}  <a href="details.html?id=${post._id}">see more</a>
           </p>
           <hr>
