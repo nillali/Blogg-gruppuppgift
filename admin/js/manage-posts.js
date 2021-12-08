@@ -36,21 +36,21 @@ async function blogPostsTable(){
         //    console.log(queryString);
         //    let urlParams = new URLSearchParams(queryString);
         //    console.log(urlParams.get(['_id']));
-       sendId();
-       async function sendId(){    
-       try{
-           let response = await fetch('http://localhost:5000/posts' + post['_id']);
-           let data = response.json();
-           console.log(data);
+    //    sendId();
+    //    async function sendId(){    
+    //    try{
+    //        let response = await fetch('http://localhost:5000/posts' + post['_id']);
+    //        let data = response.json();
+    //        console.log(data);
 
-           document.getElementById('title').value = data.title;
-           document.getElementById('author').value = data.author;
-           document.getElementById('content').value = data.content;
+    //        document.getElementById('title').value = data.title;
+    //        document.getElementById('author').value = data.author;
+    //        document.getElementById('content').value = data.content;
 
-       }catch(error){
-           console.log(error);
-       }
-    }
+    //    }catch(error){
+    //        console.log(error);
+    //    }
+    // }
         
 
         
