@@ -15,8 +15,7 @@ async function blogPosts() {
         console.log(post['_id']);
         main.innerHTML += `
           <h1> ${post.title}</h1>
-          <p>${post.author} ⬥ ${formatedDate}</p>
-          <p>Tags: ${post.tags}</p>          
+          <p>${post.author} ⬥ ${formatedDate}</p>         
           <p>Tags: ${post.tags.join(', ')}</p>
           <p> ${post.content}  <a href="details.html?id=${post._id}">see more</a>
           </p>
