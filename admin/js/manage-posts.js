@@ -17,7 +17,7 @@ async function blogPostsTable(){
     postsTable.innerHTML += `
           <td> ${post.title}</td>
           <td> ${post.author}</td>
-          <td>${post.tags}</td>
+          <td>${post.tags.join(', ')}</td>
           <td> ${formatedDate}</td>
           <td>
           <button><a id="change-button" href="update-post.html?id=${post['_id']}">Ändra</a></button>
