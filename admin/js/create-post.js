@@ -11,6 +11,8 @@ function createPunEvent() {
 
         let formData = new FormData(form);
         formDataObject = {
+            "title": formData.get('title'),
+            "author": formData.get('author'),
             "content": formData.get('content')
         }
 
@@ -30,21 +32,3 @@ function createPunEvent() {
     });
 }
 
-let serializeForm = function (form) {
-    var obj = {};
-    var formData = new FormData(form);
-    // console.log(formData.getAll());
-
-    for (var key of formData.keys()) {
-        let inputData = formData.getAll(key);
-
-        if (inputData.length > 1) {
-            obj[key] = inputData;
-        } else {
-            obj[key] = inputData[0];    
-        }
-    }
-    
-    // console.log(obj);
-    return obj;
-};
