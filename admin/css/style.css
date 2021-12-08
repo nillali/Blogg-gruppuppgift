@@ -12,9 +12,33 @@ table, tr, td{
     margin: auto;
 }
 #handle-table{
-    margin: auto;
+    margin: 20px auto;
 }
 #manage-container{
     width: 960px;
     margin: auto;
+}
+.top-navigation{
+    padding-left: 30px;
+}
+.headline-on-page{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.manage-buttons{
+    margin-left: 150px;
+}
+button a{
+    text-decoration: none;
+    color: black;
+}
+button:hover,
+button a:hover{
+    color:black;
+}
+a{
+    color: navy;
+}
+a:hover{
+    color: lightcoral;
 }
