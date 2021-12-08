@@ -28,27 +28,29 @@ async function blogPostsTable(){
 
         }
 
-    //    window.onload = function(){
-    //    getPost();
-    //    async function getPost(){
+       window.onload =  async function(){
        
-    //     let queryString = window.location.search;
-    //    console.log(queryString);
-    //    let urlParams = new URLSearchParams(queryString);
-    //    console.log(urlParams.get(['_id']));
-    //    }
+       
+       
+        let queryString = window.location.search;
+       console.log(queryString);
+       let urlParams = new URLSearchParams(queryString);
+       console.log(urlParams.get(['_id']));
+       
 
-    //    try{
-    //        let response = await fetch('http://localhost:5000/posts');
-    //        let data = response.json();
-    //        console.log(data);
+       try{
+           let response = await fetch('http://localhost:5000/posts' + id);
+           let data = response.json();
+           console.log(data);
 
-           
+           document.getElementById('title').value = data.title;
+           document.getElementById('author').value = data.author;
+           document.getElementById('content').value = data.content;
 
-    //    }catch(error){
-    //        console.log(error);
-    //    }
-    // }
+       }catch(error){
+           console.log(error);
+       }
+    }
 
 
 
