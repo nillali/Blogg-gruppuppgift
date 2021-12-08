@@ -13,7 +13,8 @@ function createPunEvent() {
         formDataObject = {
             "title": formData.get('title'),
             "author": formData.get('author'),
-            "content": formData.get('content')
+            "content": formData.get('content'),
+
         }
 
         try {

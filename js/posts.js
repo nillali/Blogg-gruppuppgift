@@ -10,12 +10,13 @@ async function blogPosts(){
     for(let post of data){
     let datePost = new Date(post.date);
     let formatedDate = `${datePost.getFullYear()}-${datePost.getMonth() + 1}-${datePost.getDate()} ${datePost.getHours()}:${datePost.getMinutes()}`
-          
+    
     
     console.log(post['_id']);
     main.innerHTML += `
           <h1> ${post.title}</h1>
           <p>${post.author} ⬥ ${formatedDate}</p>
+          <p>Tags: ${post.tags}</p>
           <p> ${post.content}</p>
           <hr>
 
