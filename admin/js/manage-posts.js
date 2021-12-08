@@ -17,6 +17,7 @@ async function blogPostsTable(){
     postsTable.innerHTML += `
           <td> ${post.title}</td>
           <td> ${post.author}</td>
+          <td>${post.tags}</td>
           <td> ${formatedDate}</td>
           <td>
           <button><a id="change-button" href="update-post.html?id=${post['_id']}">Ändra</a></button>
@@ -28,18 +29,17 @@ async function blogPostsTable(){
 
         }
 
-       window.onload =  async function(){
        
+        // window.onload =  async function(){
        
-       
-        let queryString = window.location.search;
-       console.log(queryString);
-       let urlParams = new URLSearchParams(queryString);
-       console.log(urlParams.get(['_id']));
-       
-
+        //    let queryString = location.search;
+        //    console.log(queryString);
+        //    let urlParams = new URLSearchParams(queryString);
+        //    console.log(urlParams.get(['_id']));
+       sendId();
+       async function sendId(){    
        try{
-           let response = await fetch('http://localhost:5000/posts' + id);
+           let response = await fetch('http://localhost:5000/posts' + post['_id']);
            let data = response.json();
            console.log(data);
 
@@ -51,8 +51,7 @@ async function blogPostsTable(){
            console.log(error);
        }
     }
-
-
+        
 
         
         let deletePost = document.getElementsByClassName('delete-post');

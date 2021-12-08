@@ -15,9 +15,8 @@ async function blogPosts(){
     console.log(post['_id']);
     main.innerHTML += `
           <h1> ${post.title}</h1>
+          <p>${post.author} ⬥⬥ ${formatedDate}</p>
           <p> ${post.content}</p>
-          <td> ${post.author}</td>
-          <td> ${formatedDate}</td>
           <hr>
 
 

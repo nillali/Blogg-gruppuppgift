@@ -14,3 +14,7 @@ table, tr, td{
 #handle-table{
     margin: auto;
 }
+#manage-container{
+    width: 960px;
+    margin: auto;
+}
