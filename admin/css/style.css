@@ -1,6 +1,7 @@
 body{
     background-color: #F6F7F8
 }
+
 table, tr, td{
     border: 1px solid black;
     border-collapse: collapse;
@@ -10,9 +11,17 @@ table, tr, td{
     text-decoration: none;
     color: black;
 }
+p{
+    line-height: 1.9;
+    padding: 0 30px;
+}
 #main-container{
+    text-align: center;
+    padding: 20px;
+    border: 1px solid lightgrey;
+    background-color: white;
     width: 960px;
-    
+    margin: auto;
 }
 #handle-table{
     margin: 20px auto;
