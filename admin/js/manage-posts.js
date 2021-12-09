@@ -10,15 +10,15 @@ async function blogPostsTable(){
     
     for(let post of data){
     let datePost = new Date(post.date);
-    let formatedDate = `${datePost.getFullYear()}-${datePost.getMonth() + 1}-${datePost.getDate()} ${datePost.getHours()}:${datePost.getMinutes()}`
+    let postDate = `${datePost.getFullYear()}-${datePost.getMonth() + 1}-${datePost.getDate()} ${datePost.getHours()}:${datePost.getMinutes()}`
           
     
     console.log(post['_id']);
     postsTable.innerHTML += `
           <td> ${post.title}</td>
           <td> ${post.author}</td>
-          <td>${post.tags}</td>
-          <td> ${formatedDate}</td>
+          <td>${post.tags.join(', ')}</td>
+          <td> ${postDate}</td>
           <td>
           <button><a id="change-button" href="update-post.html?id=${post['_id']}">Ändra</a></button>
           <button class="delete-post" data-id="${post['_id']}">Radera</button>
