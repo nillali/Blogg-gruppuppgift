@@ -16,9 +16,10 @@ async function getPost(id) {
         console.log(post)
 
 
-        document.getElementById('title').value = post.content;
-        document.getElementById('author').value = post.content;
+        document.getElementById('title').value = post.title;
+        document.getElementById('author').value = post.author;
         document.getElementById('content').value = post.content;
+
     } catch(error) {
         console.log(error);
     }
@@ -30,11 +31,20 @@ function updatePost(id) {
     updateform.addEventListener('submit', async function(e) {
         e.preventDefault();
 
+        let selectedTags = document.getElementById("tags").selectedOptions;
+
+        let tags = [];
+        for (var i = 0; i < selectedTags.length; i++) {
+            tags.push(selectedTags[i].value);
+        }
+        console.log(tags)
+
         let formData = new FormData(updateform);
         formDataObject = {
             "title": formData.get('title'),
             "author": formData.get('author'),
-            "content": formData.get('content')
+            "content": formData.get('content'),
+            "tags": tags
         }
 
         console.log(formDataObject);
