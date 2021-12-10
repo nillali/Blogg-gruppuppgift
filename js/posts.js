@@ -23,7 +23,7 @@ async function blogPosts() {
           <p>Tags: ${post.tags.join(', ')}</p>
           <hr>
           <p>           
-          ${content} <a href="details.html?id=${post._id}">Read more..</a>
+          ${content} <a href="post.html?id=${post._id}">Read more..</a>
           </p>
           <hr>
 
