@@ -15,6 +15,8 @@ async function blogPosts() {
         let content = post.content;
         if (post.content.length > 100) {
             content = post.content.substring(0, 100);
+            content += '.... ';
+            content += `<a href="post.html?id=${post._id}"> Read more</a>`;
         }
 
         main.innerHTML += `
@@ -23,11 +25,9 @@ async function blogPosts() {
           <p>Tags: ${post.tags.join(', ')}</p>
           <hr>
           <p>           
-          ${content} <a href="post.html?id=${post._id}">Read more..</a>
+          ${content}           
           </p>
           <hr>
-
-
           `;
 
     }
