@@ -12,13 +12,18 @@ async function blogPosts() {
         let formatedDate = `${datePost.getFullYear()}-${datePost.getMonth() + 1}-${datePost.getDate()} ${datePost.getHours()}:${datePost.getMinutes()}`
 
 
-        console.log(post['_id']);
+        let content = post.content;
+        if (post.content.length > 100) {
+            content = post.content.substring(0, 100);
+        }
+
         main.innerHTML += `
           <h1> ${post.title}</h1>
           <p>${post.author} ⬥ ${formatedDate}</p>         
           <p>Tags: ${post.tags.join(', ')}</p>
           <hr>
-          <p> ${post.content}  <a href="details.html?id=${post._id}">See more..</a>
+          <p>           
+          ${content} <a href="details.html?id=${post._id}">Read more..</a>
           </p>
           <hr>
 
