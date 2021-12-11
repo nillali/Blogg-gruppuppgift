@@ -14,10 +14,11 @@ async function pageDetails() {
 
 
     main.innerHTML += `
-    <h1> Post details - ${post.title}</h1>
+    <h1> ${post.title}</h1>
     <p>${post.author} ⬥ ${formatedDate}</p>
     <p>Tags: ${post.tags.join(', ')}</p>
     <p> ${post.content}</p>
+    <p><a href="index.html">Back</a> </p>
     <hr>`;
 
 
