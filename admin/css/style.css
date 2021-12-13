@@ -16,7 +16,8 @@ p{
     padding: 0 30px;
 }
 #main-container,
-#create-container{
+#create-container,
+#update-container{
     text-align: center;
     padding: 15px;
     border: 1px solid lightgrey;
@@ -39,7 +40,9 @@ p{
     padding-left: 30px;
 }
 #headline-on-page,
-#create-headline{
+#create-headline,
+#update-headline,
+.headline-on-page{
     text-align: center;
     margin-bottom: 50px;
 }
@@ -59,4 +62,11 @@ a{
 }
 a:hover{
     color: lightcoral;
+}
+input,
+textarea{
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.6;
 }
