@@ -60,3 +60,7 @@ a{
 a:hover{
     color: lightcoral;
 }
+input,
+textarea{
+    margin-bottom: 10px;
+}
