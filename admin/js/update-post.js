@@ -27,19 +27,14 @@ async function getPost(id) {
         document.getElementById('author').value = post.author;
         document.getElementById('content').value = post.content;
         document.getElementById('tags').value = selecTag;
-
-        var selectTags = [];
-        for (var option of document.getElementById('tags').options) {
-           if (option.selected) {
-              selectTags.option;
-              console.log(selectTags.option)
-           }
         
-        }}
+    
+        }
 
     } catch(error) {
         console.log(error);
     }
+}
 }
 
 
@@ -52,7 +47,7 @@ function updatePost(id) {
 
 
         let tags = [];
-        for (var i = 0; i < selectedTags.length; i++) {
+        for (let i = 0; i < selectedTags.length; i++) {
             tags.push(selectedTags[i].value);
         }
         
@@ -83,4 +78,4 @@ function updatePost(id) {
         }
     })
 
-}}
+}
