@@ -6,18 +6,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div>
-        <h1>Update Blog Post</h1>
+    <hr>
+    <h1 id="update-headline">Uppdatera blogg-inlägg</h1>
+
+    <div id="update-container">
 
         <form id="update-form">
-            <label for="">Title</label><br>
+            <label for="">Titel</label><br>
             <input type="text" name="title" id="title">
             <br>
             <label for="author">Författare</label><br>
             <input type="text" name="author" id="author">
             <br>
             <label for="content">Blogg-post</label><br>
-            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <textarea name="content" id="content" cols="95" rows="25"></textarea>
             <br>
             <select name="tags" id="tags" size="7" multiple>
                 <option value="Travel">Travel</option>
@@ -25,7 +27,10 @@
                 <option value="Flowers">Flowers</option>
                 <option value="Dogs">Dogs</option>
             </select>
+            <br>
+            <br>
             <input type="submit" value="Update">
+            <br>
             <a href="index.html">&#x2190; back</a>
         </form>
     </div>
