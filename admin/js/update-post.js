@@ -13,17 +13,34 @@ async function getPost(id) {
         let response = await fetch('http://localhost:5000/posts/' + id);
         let post = await response.json();
         console.log(response)
-        console.log(post)
+        console.log(post.tags)
 
+        let tagnames = post.tags;
+        
+        for(tag of tagnames){
+            let selecTag = tag;
+            
+            console.log(selecTag)
 
+        
         document.getElementById('title').value = post.title;
         document.getElementById('author').value = post.author;
         document.getElementById('content').value = post.content;
+        document.getElementById('tags').value = selecTag;
+
+        var selectTags = [];
+        for (var option of document.getElementById('tags').options) {
+           if (option.selected) {
+              selectTags.option;
+              console.log(selectTags.option)
+           }
+        
+        }}
 
     } catch(error) {
         console.log(error);
     }
-}}
+}
 
 
 function updatePost(id) {
@@ -33,11 +50,12 @@ function updatePost(id) {
 
         let selectedTags = document.getElementById("tags").selectedOptions;
 
+
         let tags = [];
         for (var i = 0; i < selectedTags.length; i++) {
             tags.push(selectedTags[i].value);
         }
-        console.log(tags)
+        
 
         let formData = new FormData(updateform);
         formDataObject = {
@@ -65,4 +83,4 @@ function updatePost(id) {
         }
     })
 
-}
+}}
