@@ -20,7 +20,7 @@ async function blogPostsTable(){
         <td>${post.tags.join(', ')}</td>
         <td> ${postDate}</td>
         <td>
-        <button><a id="change-button" href="update-post.html?id=${post['_id']}">Ändra</a></button>
+        <button><a class="change-button" href="update-post.html?id=${post['_id']}">Ändra</a></button>
         <button class="delete-post" data-id="${post['_id']}">Radera</button>
         </td> 
         
