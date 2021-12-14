@@ -26,24 +26,18 @@ function createPunEvent() {
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-        let formData = new FormData(form);
-        let newArray = [];
-        for (let oneTag of availableTags){
-            if (oneTag.selected == true){
-             oneTag.push(newArray); // Denna loopen funkar inte just nu
-            }
-        }
+        let formData = new FormData(form);        
 
-
+        var options = document.getElementById('tags').selectedOptions;
+        var values = Array.from(options).map(({ value }) => value);
+        console.log(values);
        
-
         formDataObject = {
             "title": formData.get('title'),
             "author": formData.get('author'),
             "content": formData.get('content'),
-            "tags": newArray
+            "tags": values
         }
-
 
         try {
             await fetch('http://localhost:5000/posts', {
