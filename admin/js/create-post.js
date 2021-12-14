@@ -4,25 +4,46 @@ window.onload = function () {
 
 function createPunEvent() {
     let form = document.getElementById('create-post');
+    let selectTagOption = document.getElementById('tags');
+
+    let availableTags = [
+     "Hundar",
+     "Katter",
+     "Blommor",
+     "Resor",
+     "Mat",
+     "Bilar",
+     "Inredning"
+    ];
+
+    for (let i = 0; i < availableTags.length; i++){
+        selectTagOption.innerHTML += `
+        <option>${availableTags[i]}</option>
+        
+        `;
+    }
 
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-
         let formData = new FormData(form);
-        var selectedTags = document.getElementById("tags").selectedOptions;
-
-        var tags = [];
-        for (var i = 0; i < selectedTags.length; i++) {
-            tags.push(selectedTags[i].value);
+        let newArray = [];
+        for (let oneTag of availableTags){
+            if (oneTag.selected == true){
+             oneTag.push(newArray); // Denna loopen funkar inte just nu
+            }
         }
+
+
+       
 
         formDataObject = {
             "title": formData.get('title'),
             "author": formData.get('author'),
             "content": formData.get('content'),
-            "tags": tags
+            "tags": newArray
         }
+
 
         try {
             await fetch('http://localhost:5000/posts', {
