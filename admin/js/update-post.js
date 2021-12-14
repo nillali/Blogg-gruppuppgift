@@ -17,34 +17,49 @@ async function getPost(id) {
 
         let tagnames = post.tags;
 
-        let viewTags = document.getElementById('tags');
-        let tags = ["Hundar",
+        // let viewTags = document.getElementById('tags');
+
+        let tags = [
+        "Hundar",
         "Katter",
         "Blommor",
         "Resor",
         "Mat",
         "Bilar",
-        "Inredning"]
+        "Inredning"
+        ];
 
-        for(let i = 0; i < tags.length; i++){
-            viewTags.innerHTML += `
-            <option>${tags[i]}</option>
-            `;
+        // for(let i = 0; i < tags.length; i++){
+        //     viewTags.innerHTML += `
+        //     <option>${tags[i]}</option>
+        //     `;
+        // }
+
+
+        for(let tag of tags){
+            let selected = '';
+            if(tagnames.includes(tag)){
+                selected = 'selected';
+
+                document.getElementById('tags').innerHTML += `
+                <option value="${tag}"${selected}>${tag}</option>
+                `;
+
+            }else{
+                document.getElementById('tags').innerHTML += `
+                <option value="${tag}">${tag}</option>
+                `;
+            }
+            
+            
+            // console.log(selecTag)
+            
         }
-        for(tag of tagnames){
-            let selecTag = tag;
-            
-            console.log(selecTag)
-            
         
         document.getElementById('title').value = post.title;
         document.getElementById('author').value = post.author;
         document.getElementById('content').value = post.content;
-        document.getElementById('tags').innerHTML += `
-        <option selected>${selecTag}</option>
-        `
 
-        }
         
 
     } catch(error) {
