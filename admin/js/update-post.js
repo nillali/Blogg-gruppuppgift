@@ -12,24 +12,40 @@ async function getPost(id) {
     try {
         let response = await fetch('http://localhost:5000/posts/' + id);
         let post = await response.json();
-        console.log(response)
         console.log(post.tags)
 
+
         let tagnames = post.tags;
-        
+
+        let viewTags = document.getElementById('tags');
+        let tags = ["Hundar",
+        "Katter",
+        "Blommor",
+        "Resor",
+        "Mat",
+        "Bilar",
+        "Inredning"]
+
+        for(let i = 0; i < tags.length; i++){
+            viewTags.innerHTML += `
+            <option>${tags[i]}</option>
+            `;
+        }
         for(tag of tagnames){
             let selecTag = tag;
             
             console.log(selecTag)
-
+            
         
         document.getElementById('title').value = post.title;
         document.getElementById('author').value = post.author;
         document.getElementById('content').value = post.content;
-        document.getElementById('tags').value = selecTag;
-        
-    
+        document.getElementById('tags').innerHTML += `
+        <option selected>${selecTag}</option>
+        `
+
         }
+        
 
     } catch(error) {
         console.log(error);
@@ -43,12 +59,20 @@ function updatePost(id) {
     updateform.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        let selectedTags = document.getElementById("tags").selectedOptions;
-
-
-        let tags = [];
-        for (let i = 0; i < selectedTags.length; i++) {
-            tags.push(selectedTags[i].value);
+        let tagId = document.getElementById('tags');
+        let tags = [
+            "Hundar",
+            "Katter",
+            "Blommor",
+            "Resor",
+            "Mat",
+            "Bilar",
+            "Inredning"
+        ]
+        for (let i = 0; i < tags.length; i++){
+            tagId.innerHTML += `
+            <option>${tags[i]}</option>
+            `;
         }
         
 
