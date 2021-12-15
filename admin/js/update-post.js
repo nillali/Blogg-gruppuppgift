@@ -16,8 +16,7 @@ async function getPost(id) {
 
 
         let tagnames = post.tags;
-
-        // let viewTags = document.getElementById('tags');
+        let viewTags = document.getElementById('tags');
 
         let tags = [
         "Hundar",
@@ -29,30 +28,22 @@ async function getPost(id) {
         "Inredning"
         ];
 
-        // for(let i = 0; i < tags.length; i++){
-        //     viewTags.innerHTML += `
-        //     <option>${tags[i]}</option>
-        //     `;
-        // }
-
 
         for(let tag of tags){
             let selected = '';
             if(tagnames.includes(tag)){
                 selected = 'selected';
 
-                document.getElementById('tags').innerHTML += `
+                viewTags.innerHTML += `
                 <option value="${tag}"${selected}>${tag}</option>
                 `;
 
             }else{
-                document.getElementById('tags').innerHTML += `
+                viewTags.innerHTML += `
                 <option value="${tag}">${tag}</option>
                 `;
             }
             
-            
-            // console.log(selecTag)
             
         }
         
@@ -74,21 +65,9 @@ function updatePost(id) {
     updateform.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        let tagId = document.getElementById('tags');
-        let tags = [
-            "Hundar",
-            "Katter",
-            "Blommor",
-            "Resor",
-            "Mat",
-            "Bilar",
-            "Inredning"
-        ]
-        for (let i = 0; i < tags.length; i++){
-            tagId.innerHTML += `
-            <option>${tags[i]}</option>
-            `;
-        }
+        var options = document.getElementById('tags').selectedOptions;
+        var values = Array.from(options).map(({ value }) => value);
+        console.log(values);
         
 
         let formData = new FormData(updateform);
@@ -96,7 +75,7 @@ function updatePost(id) {
             "title": formData.get('title'),
             "author": formData.get('author'),
             "content": formData.get('content'),
-            "tags": tags
+            "tags": values
         }
 
         console.log(formDataObject);
